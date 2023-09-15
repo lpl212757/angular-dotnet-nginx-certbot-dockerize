@@ -45,7 +45,7 @@ services:
 
 Create an nginx/default.conf file with your Nginx server configuration:
 
-```json
+```nginx
 server {
     listen 80;
     listen [::]:80;
@@ -90,7 +90,7 @@ services:
 
 Update your nginx/default.conf file to include a location block for Certbot verification:
 
-```json
+```nginx
 server {
     listen 80;
     listen [::]:80;
