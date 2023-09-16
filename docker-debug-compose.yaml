@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  client:
+    build:
+      context: ./src/client
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+      - 8081:443
