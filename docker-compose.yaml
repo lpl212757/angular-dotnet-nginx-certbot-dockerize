@@ -1,14 +1,28 @@
 version: '3'
 
 services:
+  client:
+    build:
+      context: ./src/client
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+      - 8081:443
+  server:
+    build:
+      context: ./src/server
+      dockerfile: Dockerfile
+    ports:
+      - 9090:80
+      - 9091:443
   nginx:
-    image: nginx:latest
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./nginx/html/:/etc/nginx/html/
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/nginx/ssl/:ro
   certbot:
