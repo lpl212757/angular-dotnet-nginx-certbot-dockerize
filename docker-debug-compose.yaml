@@ -8,3 +8,17 @@ services:
     ports:
       - 8080:80
       - 8081:443
+  server:
+    build:
+      context: ./src/server
+      dockerfile: Dockerfile
+    ports:
+      - 9090:80
+      - 9091:443
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
